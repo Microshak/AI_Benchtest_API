@@ -11,11 +11,12 @@ r = redis.Redis(host='redis', port=6379)
 
 
 
-@app.route('/device', methods=['POST']) 
-def predict():
+@app.route('/device/<apikey>', methods=['POST']) 
+def predict(apikey):
+    if(apikey != "152246f8-c2cc-4ab3-b4b9-529ab36ec5f6"):
+        return "nope", 401
     data = request.json
-    print('jejjjjjjjjj')
-    #name = data['name']
+   
     dat =jsonify(data)
 
     r.setex(request.json['name'], timedelta(minutes=15), value=json.dumps(data) )
