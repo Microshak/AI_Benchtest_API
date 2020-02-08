@@ -1,0 +1,11 @@
+version: '3'
+services:
+  web:
+    image: microshak/ai_benchtest
+    ports:
+     - "80:5000"
+     - "443:5000"
+
+  redis:
+    image: "redis:alpine"
+   
