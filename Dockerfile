@@ -1,6 +1,5 @@
 FROM python:3.8-buster
 ADD . /code
 WORKDIR /code
-RUN pip install flask
-RUN pip install redis
+RUN pip install -r requirements.txt
 CMD ["python", "app.py"]
